@@ -1,0 +1,108 @@
+# Configurando do zero um projeto Node com Typescript
+
+```
+yarn add express
+```
+
+```
+yarn add @types/express -D
+```
+
+```
+yarn add typescript -D
+```
+
+```
+yarn tsc --init
+```
+
+Setar a rootDir com './src'
+
+Setar a outDir com './dist'
+
+## Para rodar o script em forma de desenvolvimento
+
+```
+yarn add ts-node-dev -D
+```
+
+Até aqui o script do package.json deve estar assim:
+
+```
+  "scripts": {
+    "dev:server": "ts-node-dev --transpileOnly --ignore-watch node_modules src/server.ts",
+    "build": "tsc"
+  },
+```
+
+**--transpileOnly**
+Desabilita a compilação de verificar se os tipos estão corretos, deixando a responsabilidade desta validação para o VisualStudioCode, além disso deixa o projeto **bem mais rápido**.
+
+**--ignore-watch node_modules**
+Desabilita o watch para não ficar escutando alterações na pasta **node_module**.
+
+## Resolvendo problemas de importação do typescript
+
+Por padrão o eslint não entende a importação de arquivos do typescript e utilizando este plugin ele passa a entender.
+
+```
+yarn add -D eslint-import-resolver-typescript
+```
+
+## Prettier
+
+```shell
+yarn add prettier eslint-config-prettier eslint-plugin-prettier -D
+```
+
+## ORM - TypeORM
+
+Ao instalar o TypeORM é necessário instalar também o drive de conexão do banco que será utilizado, neste caso vamos utilizar o postgres.
+
+```shell
+yarn add typeorm pg reflect-metadata
+```
+
+---
+
+Quando estamos trabalhando com typescript é necessário instalar o reflet-metadata e importar ele no primeiro arquivo acima de tudo da aplicação:
+
+```typescript
+import 'reflect-metadata';
+```
+---
+
+Como o typeorm não tem como default executar scripts **typescript** é necessário criar uma configuração no package.json para habilitar esta funcionalidade
+
+```json
+"typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+```
+
+### Criando migrations com o CLI TypeORM
+
+```shell
+yarn typeorm migrations:create -n CreateAppointments
+```
+
+Para executar
+```shell
+yarn typeorm migrations:run
+```
+
+---
+
+Revertendo um migrations, ele volta apenas a última alteração
+
+```shell
+yarn typeorm migration:revert
+```
+
+### Criptografando a senha
+
+```shell
+yarn add bcryptjs
+```
+
+```shell
+yarn add -D @types/bcryptjs
+```
