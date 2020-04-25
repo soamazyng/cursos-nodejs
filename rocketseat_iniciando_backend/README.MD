@@ -139,3 +139,11 @@ yarn add multer
 ```shell
 yarn add -D @types/multer
 ```
+
+## Express Async Errors
+
+Como o express não tem tratativa de erro para rotas async é necessário instalar este pacote.
+
+```shell
+yarn add express-async-errors
+```
