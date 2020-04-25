@@ -106,3 +106,36 @@ yarn add bcryptjs
 ```shell
 yarn add -D @types/bcryptjs
 ```
+
+## JWT
+
+instalar o pacote
+
+```shell
+yarn add jsonwebtoken
+```
+
+```shell
+yarn add -D @types/jsonwebtoken
+```
+
+## DOTENV
+
+[Tutorial de como fazer funcionar no Typescript](https://blog.morizyun.com/javascript/library-typescript-dotenv-environment-variable.html)
+
+## Pino
+
+```shell
+yarn add pino # npm install --save pino
+yarn add --dev @types/pino
+```
+
+## Multer
+
+```shell
+yarn add multer
+```
+
+```shell
+yarn add -D @types/multer
+```
