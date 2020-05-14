@@ -1,0 +1,14 @@
+FROM node:10-alpine
+RUN apk --no-cache add --virtual native-deps \
+  g++ gcc libgcc libstdc++ linux-headers autoconf automake make nasm python git && \
+  npm install --quiet node-gyp -g
+
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
+
+COPY . /usr/src/app
+RUN npm install
+
+EXPOSE 80
+ENV NODE_ENV=production
+ENTRYPOINT [ "sh","bootstrap.sh"]
