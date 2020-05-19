@@ -70,6 +70,7 @@ Quando estamos trabalhando com typescript é necessário instalar o reflet-metad
 ```typescript
 import 'reflect-metadata';
 ```
+
 ---
 
 Como o typeorm não tem como default executar scripts **typescript** é necessário criar uma configuração no package.json para habilitar esta funcionalidade
@@ -85,6 +86,7 @@ yarn typeorm migrations:create -n CreateAppointments
 ```
 
 Para executar
+
 ```shell
 yarn typeorm migrations:run
 ```
@@ -147,3 +149,21 @@ Como o express não tem tratativa de erro para rotas async é necessário instal
 ```shell
 yarn add express-async-errors
 ```
+
+## Trabalhando com atalhos de paths dentro do Typescript
+
+Instalar a lib para funcionar os paths
+
+```shell
+  yarn add tsconfig-paths -D
+```
+
+Depois de instalar precisa registrar o tsconfig no script do package.json
+
+```json
+  "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpileOnly --ignore-watch node_modules src/shared/infra/http/server.ts",
+```
+
+## Biblioteca de injeção de dependência
+
+[https://github.com/microsoft/tsyringe](https://github.com/microsoft/tsyringe)
