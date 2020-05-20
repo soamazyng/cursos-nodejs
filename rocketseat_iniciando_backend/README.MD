@@ -167,3 +167,29 @@ Depois de instalar precisa registrar o tsconfig no script do package.json
 ## Biblioteca de injeção de dependência
 
 [https://github.com/microsoft/tsyringe](https://github.com/microsoft/tsyringe)
+
+## TDD
+
+### JEST Typescript
+
+Intalar a biblioteca
+
+```shell
+yarn add ts-jest -D
+```
+
+```shell
+@types/jest
+```
+
+Depois de instalar, alterar o arquivo jest.config.js:
+
+```javascript
+preset: 'ts-jest',
+```
+
+Descomentar o testMatch que diz aonde está os meus arquivos de teste e colocar a seguinte instrução:
+
+```javascript
+testMatch: ['**/*.spec.ts'],
+```

@@ -2,6 +2,9 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import 'express-async-errors';
 
+import expressPinoLogger from 'express-pino-logger';
+import logger from '@config/logger';
+
 import 'reflect-metadata';
 
 import '../typeorm';
@@ -11,6 +14,7 @@ import AppError from '@shared/errors/AppError';
 import routes from './routes';
 
 const app = express();
+app.use(expressPinoLogger({ logger }));
 
 app.use(cors());
 
@@ -27,7 +31,7 @@ app.use(
       });
     }
 
-    console.error(error);
+    logger.error(error);
 
     return response.status(500).json({
       status: 'error',
@@ -36,6 +40,6 @@ app.use(
   },
 );
 
-app.listen(3333, () => {
-  console.log('🚀 Server started on port 3333');
+app.listen(process.env.PORT_DEFAULT, () => {
+  logger.info(`🚀 Server started on port ${process.env.PORT_DEFAULT}`);
 });
