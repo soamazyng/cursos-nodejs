@@ -170,6 +170,33 @@ Depois de instalar precisa registrar o tsconfig no script do package.json
 
 ## TDD
 
+### Requisitos de negócios
+
+#### Requisitos Funcionais
+
+O requisito funcional representa o que o software faz, em termos de tarefas e serviços. Uma função é descrita como um conjunto de entradas, seu comportamento e as saídas. 
+**_Exemplo_**
+
+- O usuário deve poder recurar sua senha informando o seu e-mail;
+- O usuário deve receber um e-mail com instruções de recuperação de senha;
+- O usuário deve poder resetar sua senha;
+
+#### Requisitos não funcionais
+
+Requisitos não funcionais são os requisitos relacionados ao uso da aplicação em termos de desempenho, usabilidade, confiabilidade, segurança, disponibilidade, manutenção e tecnologias envolvidas. Estes requisitos dizem respeito a como as funcionalidades serão entregues ao usuário do software.
+**_Exemplo_**
+
+- Utilizar Mailtrap para testar o envio de e-mails em desenvolvimento;
+- Utilizar o Amazon SES para envios em produção;
+- O envio de e-mails deve acontecer em segundo plano (background job);
+
+#### Regras de Negócio
+
+Visa detalhar as funcionalidades particulares do software. Com isso facilita por parte dos programadores o desenvolvimento de métodos de tratamento de exceções, particularidades que o sistema possa executar e o mais importante, limitar ações fora do processo normal de funcionamento de um sistema específico.
+**_Exemplo_**
+
+- O link enviado por e-mail para resetar senha deve expirar em 2hrs;
+
 ### JEST Typescript
 
 Intalar a biblioteca
@@ -192,4 +219,19 @@ Descomentar o testMatch que diz aonde está os meus arquivos de teste e colocar 
 
 ```javascript
 testMatch: ['**/*.spec.ts'],
+```
+
+Executar scripts antes de cada um dos testes
+
+```javascript
+beforeEach(() => {
+  fakeUsersRepository = new FakeUsersRepository();
+  fakeMailProvider = new FakeMailProvider();
+
+  sendForgotPasswordEmailService = new SendForgotPasswordEmailService(
+    fakeUsersRepository,
+    fakeMailProvider,
+    fakeUserTokensRepository,
+  );
+});
 ```
