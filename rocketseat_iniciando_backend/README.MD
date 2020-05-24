@@ -235,3 +235,21 @@ beforeEach(() => {
   );
 });
 ```
+
+## Trabalhando com E-mails
+
+Pacote Node para trabalhar com e-mails
+
+```shell
+yarn add nodemailer
+```
+
+Biblioteca utilizada para disparos de e-mails ambiente de desenvolvimento
+
+[https://ethereal.email/create](https://ethereal.email/create)
+
+## Template engine Handlebars
+
+```shell
+yarn add handlebars
+```

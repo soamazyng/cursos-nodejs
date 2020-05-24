@@ -21,7 +21,7 @@ export default class UserToken {
   token: string;
 
   @ManyToOne(() => User)
-  @JoinColumn({ name: 'provider_id' })
+  @JoinColumn({ name: 'user_id' })
   user_id: string;
 
   @CreateDateColumn()
