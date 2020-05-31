@@ -16,11 +16,18 @@ export default class Appointment {
   id: string;
 
   @Column()
+  user_id: string;
+
+  @ManyToOne(() => User)
+  @JoinColumn({ name: 'user_id' })
+  provider: User;
+
+  @Column()
   provider_id: string;
 
   @ManyToOne(() => User)
   @JoinColumn({ name: 'provider_id' })
-  provider: User;
+  user: User;
 
   @Column('time with time zone')
   date: Date;

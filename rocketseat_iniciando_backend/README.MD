@@ -236,6 +236,12 @@ beforeEach(() => {
 });
 ```
 
+Limpar cache dos testes
+
+```shell
+yarn jest --clearCache
+```
+
 ## Trabalhando com E-mails
 
 Pacote Node para trabalhar com e-mails

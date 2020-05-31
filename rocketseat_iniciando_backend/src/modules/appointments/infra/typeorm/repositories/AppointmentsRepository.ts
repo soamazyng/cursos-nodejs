@@ -36,6 +36,9 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
             `to_char(${dateFieldName}, 'MM-YYYY') = '${parseMonth}-${year}'`,
         ),
       },
+      order: {
+        date: 'ASC',
+      },
     });
 
     return appointments;
@@ -58,6 +61,9 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
             `to_char(${dateFieldName}, 'DD-MM-YYYY') = '${parseDay}-${parseMonth}-${year}'`,
         ),
       },
+      order: {
+        date: 'ASC',
+      },
     });
 
     return appointments;
@@ -66,8 +72,10 @@ export default class AppointmentsRepository implements IAppointmentsRepository {
   public async create({
     provider_id,
     date,
+    user_id,
   }: ICreateAppointmentDTO): Promise<Appointment> {
     const appointment = this.ormRepository.create({
+      user_id,
       provider_id,
       date,
     });
