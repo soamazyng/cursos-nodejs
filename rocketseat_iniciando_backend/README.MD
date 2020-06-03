@@ -259,3 +259,13 @@ Biblioteca utilizada para disparos de e-mails ambiente de desenvolvimento
 ```shell
 yarn add handlebars
 ```
+
+## Class Transformer
+
+Transforma a classe antes de exportar os dados para o frontend.
+Com este package é possível utilizar as funções dentro da própria model.
+Estas funções podem excluir propriedades ou acrescentar dentro da model.
+
+```shell
+yarn add class-transformer
+```

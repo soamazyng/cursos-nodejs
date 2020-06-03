@@ -2,6 +2,8 @@ import express, { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
 import 'express-async-errors';
 
+import { errors } from 'celebrate';
+
 import expressPinoLogger from 'express-pino-logger';
 import logger from '@config/logger';
 
@@ -21,7 +23,9 @@ app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(uploadConfig.uploadsFolder));
 app.use(routes);
+app.use(errors());
 
+// error global
 app.use(
   (error: Error, request: Request, response: Response, _: NextFunction) => {
     if (error instanceof AppError) {
