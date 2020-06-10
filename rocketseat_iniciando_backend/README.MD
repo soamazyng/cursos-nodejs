@@ -269,3 +269,11 @@ Estas funções podem excluir propriedades ou acrescentar dentro da model.
 ```shell
 yarn add class-transformer
 ```
+
+## Trabalhando com Redis
+
+Pacote a ser instalado é o Ioredis
+
+```shell
+yarn add ioredis
+```
