@@ -270,10 +270,25 @@ Estas funções podem excluir propriedades ou acrescentar dentro da model.
 yarn add class-transformer
 ```
 
-## Trabalhando com Redis
+## Trabalhando com Cache Redis
 
 Pacote a ser instalado é o Ioredis
 
 ```shell
 yarn add ioredis
+```
+
+## Trabalhando com um middleware de segurança para impedir números de requisições muito acima do normal
+
+Pacote a ser instalado é o [rate limiter flexible](https://github.com/animir/node-rate-limiter-flexible#readme)
+Ele precisa armazenar as requisições em algum banco de dados, ou ele utilizará a memória da aplicação que não é uma boa alternativa, então vamos utilizar o Redis para armazenar estas requisições
+
+```shell
+yarn add rate-limiter-flexible
+```
+
+Para utilizar o redis e armazenar estas requisições você precisa instalar o pacote do redis
+
+```shell
+yarn add redis
 ```
