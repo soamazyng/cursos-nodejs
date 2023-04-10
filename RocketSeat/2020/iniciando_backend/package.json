@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@types/dotenv": "^8.2.0",
-    "aws-sdk": "^2.688.0",
+    "aws-sdk": "^2.1354.0",
     "bcryptjs": "^2.4.3",
     "celebrate": "^12.1.1",
     "class-transformer": "^0.3.1",
@@ -36,7 +36,7 @@
     "redis": "^3.0.2",
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.3.0",
-    "typeorm": "^0.2.24",
+    "typeorm": "^0.3.14",
     "uuidv4": "^6.0.7"
   },
   "devDependencies": {
